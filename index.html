@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="only light">
+  <meta name="theme-color" content="#151515">
+  <title>Pokémon Challenge</title>
+
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <form id="gameForm">
+
+        <div class="menu"></div>
+
+        <div class="mode-container">
+          <label for="mode">Select Mode:</label>
+
+          <select name="mode" id="mode">
+            <option value="Easy">Easy</option>
+            <option value="Hard">Hard</option>
+          </select>
+        </div>
+
+        <button type="submit" id="submit">
+          Submit
+        </button>
+
+      </form>
+    </header>
+  </div>
+
+  <script>
+    document.getElementById("gameForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const selectedMode = document.getElementById("mode").value.toLowerCase();
+
+      window.location.href = `hard.html?mode=${selectedMode}`;
+    });
+  </script>
+
+</body>
+</html>

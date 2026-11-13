@@ -1,0 +1,426 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,900");
+
+:root {
+  color-scheme: only light;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button:focus {
+  outline: 0;
+  outline: none;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  background: #151515;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: justify;
+  color: #000;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  forced-color-adjust: none;
+}
+
+/* Form container */
+.gameForm,
+#gameForm {
+  display: block;
+  width: 100%;
+}
+
+.description.hidden {
+  display: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 430px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 10px 15px;
+}
+
+/* Main game card */
+/* Main game card */
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  min-height: min(580px, calc(100dvh - 20px));
+  margin-top: 0;
+  background: #ffcc00;
+  padding: 15px;
+  border: 10px solid #0074bd;
+  border-radius: 15px;
+  box-shadow: -5px 5px 0px 5px #043570, inset -3px 3px 0px 3px rgba(0, 0, 0, 0.25);
+  color: #000;
+  forced-color-adjust: none;
+}
+
+
+
+/* Title: "Who is that Pokémon?" */
+.title {
+  width: 80%;
+  margin-bottom: 5px;
+  font-size: 21px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: left;
+  color: #000;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
+}
+
+/* Reload button styling */
+#reload {
+  width: 25px;
+  height: 25px;
+  font-size: 25px;
+  margin-top: -3.5px;
+  border: none;
+  float: right;
+  transition: transform 100ms, color 100ms;
+  background: transparent;
+  color: #000;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #reload:hover {
+    color: #0074bd;
+  }
+}
+
+#reload:active {
+  transform: rotate(90deg);
+  color: #a68500;
+  text-shadow: none;
+}
+
+/* Image frame container */
+.framehard {
+  width: 100%;
+  min-height: 215px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(frame.png) center;
+  background-size: cover;
+  border: 5px solid #0074bd;
+  box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.71), inset 1px 1px 7px 3px rgba(0, 0, 0, 0.35);
+}
+
+/* Pokémon image */
+.framehard img {
+  display: block;
+  margin: 10px auto;
+  width: min(190px, 100%);
+  height: auto;
+  filter: contrast(0%);
+  transform: translateX(-60px);
+}
+
+/* Image frame container Easy */
+.frameeasy {
+  width: 100%;
+  min-height: 215px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(frame.png) center;
+  background-size: cover;
+  border: 5px solid #0074bd;
+  box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.71), inset 1px 1px 7px 3px rgba(0, 0, 0, 0.35);
+}
+
+/* Pokémon image Easy */
+.frameeasy img {
+  display: block;
+  margin: 10px auto;
+  width: min(190px, 100%);
+  height: auto;
+  filter:none;
+  transform: translateX(-60px);
+}
+
+/* Reveal Pokémon image after submit */
+.framehard img.submit {
+  filter: none !important;
+}
+
+/* Image frame container for Menu */
+/* Form container on Menu page only */
+#gameForm:has(.menu) {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Image frame container for Menu */
+.menu {
+  width: 100%;
+  flex: 1;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(menu.webp) center no-repeat;
+  background-size: 100% 100%;
+  border: 5px solid #0074bd;
+  box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.71), inset 1px 1px 7px 3px rgba(0, 0, 0, 0.35);
+}
+
+
+
+/* Message text (correct/incorrect/user prompt) */
+header span {
+  width: 100%;
+  margin: 10px auto 5px;
+  font-size: 22px;
+  display: block;
+  text-transform: uppercase;
+  color: #000;
+  border: 3px solid #0074bd;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Description paragraph */
+.description {
+  margin: 0 0 7px;
+  color: #000;
+}
+
+/* Input styling */
+input {
+  width: 100%;
+  height: 45px;
+  font-size: 18px;
+  border: 3px solid #0074bd;
+  color: #0074bd;
+  padding: 0 15px;
+  background: #f2f2f2;
+  outline: none;
+}
+
+::placeholder {
+  color: #8f8f8f;
+  opacity: 1;
+}
+
+::-webkit-input-placeholder {
+  color: #8f8f8f;
+}
+
+/* Submit button */
+#submit {
+  display: block;
+  width: min(70%, 260px);
+  height: 50px;
+  border: 5px solid #0074bd;
+  color: #0074bd;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: transparent;
+  margin: 10px auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 200ms ease-in-out, transform 80ms ease-out;
+  forced-color-adjust: none;
+}
+
+#submit:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  background: #0074bd;
+  z-index: -1;
+  transition: width 200ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #submit:hover {
+    color: #FFF;
+  }
+
+  #submit:hover:after {
+    width: 110%;
+  }
+}
+
+#submit:active {
+  color: #FFF;
+  transform: scale(0.98);
+}
+
+#submit:active:after {
+  width: 110%;
+  background-color: #0f55aa;
+}
+
+/* textcolor */
+.textcolor {
+  width: 100%;
+  opacity: 1;
+  margin: 0;
+  color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  body,
+  header,
+  .title,
+  .description,
+  header span,
+  .textcolor,
+  #reload {
+    color: #000;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  #submit:active,
+  #submit.is-pressed {
+    color: #FFF;
+    transform: scale(0.98);
+  }
+
+  #submit:active:after,
+  #submit.is-pressed:after {
+    width: 110%;
+    background-color: #0f55aa;
+  }
+
+  #reload:active,
+  #reload.is-pressed {
+    transform: rotate(90deg);
+    color: #a68500;
+    text-shadow: none;
+  }
+}
+
+@media (max-width: 430px) {
+  body {
+    font-size: 15px;
+  }
+
+    header {
+    margin-top: 0;
+    padding: 12px;
+    border-width: 8px;
+    box-shadow: -3px 3px 0px 3px #043570, inset -2px 2px 0px 2px rgba(0, 0, 0, 0.25);
+  }
+
+  .title {
+    width: calc(100% - 30px);
+    font-size: 18px;
+  }
+
+  header span {
+    font-size: 18px;
+  }
+
+  .frame {
+    min-height: 180px;
+  }
+
+  #submit {
+    width: 100%;
+    max-width: none;
+    font-size: 18px;
+  }
+
+  .textcolor h2 {
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+}
+
+/* Custom Dropdown Container Wrapper */
+.mode-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px 0;
+}
+
+/* Styled Label matching the game typography */
+.mode-container label {
+  color: #000;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+/* Styled Dropdown Selector matching your existing 'input' field styles */
+select#mode {
+  width: 100%;
+  height: 45px;
+  font-size: 18px;
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
+  border: 3px solid #0074bd;
+  color: #0074bd;
+  padding: 0 40px 0 15px;
+  background-color: #f2f2f2;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Pure CSS Downward Arrow */
+  background-image:
+    linear-gradient(45deg, transparent 50%, #0074bd 50%),
+    linear-gradient(135deg, #0074bd 50%, transparent 50%);
+  background-position:
+    calc(100% - 21px) 50%,
+    calc(100% - 15px) 50%;
+  background-size:
+    6px 6px,
+    6px 6px;
+  background-repeat: no-repeat;
+}
+
+
+
+
+/* Optional wrapper adjust for mobile views scaling */
+@media (max-width: 430px) {
+  select#mode {
+    font-size: 16px;
+    height: 42px;
+  } 
+}

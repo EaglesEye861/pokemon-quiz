@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="only light">
+  <meta name="theme-color" content="#151515">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
+
+  <title>Pokémon Quiz</title>
+
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const gameMode = urlParams.get("mode") || "hard";
+  </script>
+  <script src="./game.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <form id="gameForm" autocomplete="off">
+
+        <!-- Reload Button -->
+        <button type="button" id="reload">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+
+        <div class="title">Who is that Pokémon?</div>
+
+        <!-- Pokémon Image -->
+        <div class="framehard">
+          <img id="imgpokemon" alt="Hidden Pokémon">
+        </div>
+
+        <!-- Message Display -->
+        <span id="message"></span>
+
+        <div class="description">
+          Try to figure out which Pokémon is in the image and challenge your skills and knowledge by answering in the field below.
+        </div>
+
+        <!-- Input Field -->
+        <input
+          type="text"
+          id="guess"
+          name="guess"
+          placeholder="Name of this Pokémon"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+
+        >
+
+        <!-- Submit / Next Button -->
+        <button type="submit" id="submit">
+          Submit
+        </button>
+
+        <!-- Score Display -->
+        <div class="textcolor">
+          <div class="title">
+            <h2>
+              Score : <strong id="score">0</strong>
+              <br>
+              Streak : <strong id="streak">0</strong>
+              <br>
+              Max Streak: <strong id="mstreak">0</strong>
+            </h2>
+          </div>
+        </div>
+
+      </form>
+    </header>
+  </div>
+</body>
+</html>
