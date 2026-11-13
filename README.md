@@ -2,6 +2,10 @@
 
 A responsive **"Who's That Pokémon?"** browser quiz game built with HTML, CSS, and vanilla JavaScript, featuring **Easy** and **Hard** difficulty modes and persistent score and streak tracking.
 
+## Live Demo
+
+Play the game live here: [Pokémon Challenge Live](https://eagleseye861.github.io/pokemon-quiz/)
+
 ## Features
 
 * **Two Difficulty Modes:**
